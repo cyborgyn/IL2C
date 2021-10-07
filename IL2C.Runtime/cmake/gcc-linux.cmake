@@ -4,12 +4,12 @@ set(CMAKE_BUILD_TYPE "${CONFIGURATION}")
 
 set(CMAKE_SYSTEM_NAME Generic)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pipe -g2 -Wall -Werror -Wstrict-prototypes -Wno-unused -fdata-sections -ffunction-sections -Wl,--gc-sections")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pipe -Wall -Werror -Wstrict-prototypes -Wno-unused -fdata-sections -ffunction-sections -Wl,--gc-sections  -march=native")
 
 if("${CONFIGURATION}" STREQUAL "Release")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Ofast -flto -fomit-frame-pointer -march=native -DNDEBUG")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Os -flto -fomit-frame-pointer -DNDEBUG -s")
 else()
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -D_DEBUG")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -D_DEBUG -g2")
 endif()
 
 set(IL2C_LIBRARY_NAME_BASE "il2c-gcc-linux-${PLATFORM}")
