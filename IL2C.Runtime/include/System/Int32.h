@@ -31,9 +31,11 @@ extern "C" {
 /////////////////////////////////////////////////////////////
 // System.Int32
 
+#ifndef EXTCORLIB
 typedef int32_t System_Int32;
 
 typedef System_ValueType_VTABLE_DECL__ System_Int32_VTABLE_DECL__;
+#endif
 
 extern System_Int32_VTABLE_DECL__ System_Int32_VTABLE__;
 
