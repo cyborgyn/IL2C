@@ -15,7 +15,7 @@ void System_Runtime_CompilerServices_RuntimeHelpers_InitializeArray__System_Arra
     il2c_assert(array != NULL);
     il2c_assert(fldHandle.field__ != NULL);
 
-    uintptr_t arraySize = ((uintptr_t)array->Length) * ((uintptr_t)il2c_sizeof__(array->elementType__));
+    uintptr_t arraySize = ((uintptr_t)array->length) * ((uintptr_t)il2c_sizeof__(array->elementType__));
     uintptr_t size = (fldHandle.size__ < arraySize) ? fldHandle.size__ : arraySize;
 
     memcpy(il2c_array_item0ptr__(array), fldHandle.field__, size);

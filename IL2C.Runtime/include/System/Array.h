@@ -40,7 +40,7 @@ struct System_Array
     System_Array_VTABLE_DECL__* vptr0__;
 
     IL2C_RUNTIME_TYPE elementType__;
-    intptr_t Length;
+    intptr_t length;
 };
 
 #define  System_Array_VTABLE__ System_Object_VTABLE__
@@ -67,10 +67,10 @@ static inline void* il2c_array_itemptr__(
 
     il2c_assert(array->vptr0__ == &System_Array_VTABLE__);
     il2c_assert(array->elementType__ != NULL);
-    il2c_assert(array->Length >= 0);
+    il2c_assert(array->length >= 0);
     il2c_assert(elementSize == il2c_sizeof__(array->elementType__));
 
-    if (il2c_unlikely__((index < 0) || (index >= array->Length)))
+    if (il2c_unlikely__((index < 0) || (index >= array->length)))
     {
         il2c_throw_indexoutofrangeexception__();
     }

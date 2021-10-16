@@ -8,9 +8,9 @@ int32_t System_Array_getLength(System_Array* this__)
     il2c_assert(this__ != NULL);
     il2c_assert(this__->vptr0__ == &System_Array_VTABLE__);
     il2c_assert(this__->elementType__ != NULL);
-    il2c_assert(this__->Length >= 0);
+    il2c_assert(this__->length >= 0);
 
-    return (int32_t)(this__->Length);
+    return (int32_t)(this__->length);
 }
 
 int32_t System_Array_GetLowerBound__System_Int32(System_Array* this__, int32_t dimension)
@@ -18,7 +18,7 @@ int32_t System_Array_GetLowerBound__System_Int32(System_Array* this__, int32_t d
     il2c_assert(this__ != NULL);
     il2c_assert(this__->vptr0__ == &System_Array_VTABLE__);
     il2c_assert(this__->elementType__ != NULL);
-    il2c_assert(this__->Length >= 0);
+    il2c_assert(this__->length >= 0);
 
     // TODO: MD array not implemented.
     if (il2c_unlikely__(dimension != 0))
@@ -35,7 +35,7 @@ int32_t System_Array_GetUpperBound__System_Int32(System_Array* this__, int32_t d
     il2c_assert(this__ != NULL);
     il2c_assert(this__->vptr0__ == &System_Array_VTABLE__);
     il2c_assert(this__->elementType__ != NULL);
-    il2c_assert(this__->Length >= 0);
+    il2c_assert(this__->length >= 0);
 
     // TODO: MD array not implemented.
     if (il2c_unlikely__(dimension != 0))
@@ -44,7 +44,7 @@ int32_t System_Array_GetUpperBound__System_Int32(System_Array* this__, int32_t d
     }
 
     // TODO: bind range not implemented.
-    return (int32_t)(this__->Length - 1);
+    return (int32_t)(this__->length - 1);
 }
 
 /////////////////////////////////////////////////
@@ -93,7 +93,7 @@ System_Array* il2c_new_array__(
     il2c_assert(arr->vptr0__ == &System_Array_VTABLE__);
 
     arr->elementType__ = elementType;
-    arr->Length = length;
+    arr->length = length;
 
     // Marked instance is initialized. (and will handle by GC)
     il2c_ior(&pHeader->characteristic, IL2C_CHARACTERISTIC_INITIALIZED);
@@ -112,7 +112,7 @@ static void System_Array_MarkHandler__(System_Array* arr)
     intptr_t index;
     if (arr->elementType__->flags & IL2C_TYPE_VALUE)
     {
-        for (index = 0; il2c_likely__(index < arr->Length); index++)
+        for (index = 0; il2c_likely__(index < arr->length); index++)
         {
             void* pValue = il2c_array_itemptr__(arr, (uint32_t)(arr->elementType__->bodySize), index);
             il2c_default_mark_handler_for_value_type__(pValue, arr->elementType__);
@@ -120,7 +120,7 @@ static void System_Array_MarkHandler__(System_Array* arr)
     }
     else
     {
-        for (index = 0; il2c_likely__(index < arr->Length); index++)
+        for (index = 0; il2c_likely__(index < arr->length); index++)
         {
             void* pReference = il2c_array_item(arr, void*, index);
             if (pReference != NULL)

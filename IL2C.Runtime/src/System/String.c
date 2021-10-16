@@ -1083,14 +1083,14 @@ System_String* System_String_Format__System_String_System_Array__System_Object(
     il2c_assert(format->string_body__ != NULL);
     il2c_assert(args != NULL);
 
-    if (il2c_unlikely__(args->Length > UINT16_MAX))
+    if (il2c_unlikely__(args->length > UINT16_MAX))
     {
         il2c_throw_formatexception__();
     }
 
     System_String* pString;
     if (il2c_unlikely__(System_String_InternalFormat(
-        &pString, format, (uint16_t)args->Length,
+        &pString, format, (uint16_t)args->length,
         il2c_array_itemptr(args, System_Object*, 0)) != 0))
     {
         il2c_throw_formatexception__();
