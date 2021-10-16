@@ -3,7 +3,7 @@
 /////////////////////////////////////////////////////////////
 // System.UnhandledExceptionEventHandler
 
-void System_UnhandledExceptionEventHandler_Invoke(
+void System_UnhandledExceptionEventHandler_Invoke__System_Object_System_UnhandledExceptionEventArgs(
     System_UnhandledExceptionEventHandler* this__, System_Object* sender, System_UnhandledExceptionEventArgs* e)
 {
     il2c_assert(this__ != NULL);

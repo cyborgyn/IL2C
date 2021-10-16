@@ -49,7 +49,7 @@ void il2c_invoke_unhandled_exception_on_the_current_domain__(System_Object* exce
             il2c_get_uninitialized_object(System_UnhandledExceptionEventArgs);
         System_UnhandledExceptionEventArgs__ctor__System_Object_System_Boolean(pArgs, exception, false);
 
-        System_UnhandledExceptionEventHandler_Invoke(pHandler, (System_Object*)&g_AppDomain, pArgs);
+        System_UnhandledExceptionEventHandler_Invoke__System_Object_System_UnhandledExceptionEventArgs(pHandler, (System_Object*)&g_AppDomain, pArgs);
     }
 }
 
