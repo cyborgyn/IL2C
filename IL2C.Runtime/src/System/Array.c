@@ -3,7 +3,26 @@
 /////////////////////////////////////////////////////////////
 // System.Array
 
-int32_t System_Array_getLength(System_Array* this__)
+void* il2c_array_itemptr__(
+    System_Array* array, uint32_t elementSize, intptr_t index)
+{
+    il2c_assert(array != NULL); // TODO: NullReferenceException
+
+    il2c_assert(array->vptr0__ == &System_Array_VTABLE__);
+    il2c_assert(array->elementType__ != NULL);
+    il2c_assert(array->length >= 0);
+    il2c_assert(elementSize == il2c_sizeof__(array->elementType__));
+
+    if (il2c_unlikely__((index < 0) || (index >= array->length)))
+    {
+        il2c_throw_indexoutofrangeexception__();
+    }
+
+    return il2c_array_item0ptr__(array) + ((intptr_t)elementSize) * index;
+}
+
+
+int32_t System_Array_get_Length(System_Array* this__)
 {
     il2c_assert(this__ != NULL);
     il2c_assert(this__->vptr0__ == &System_Array_VTABLE__);

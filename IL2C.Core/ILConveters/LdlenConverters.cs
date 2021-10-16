@@ -47,7 +47,7 @@ namespace IL2C.ILConverters
                 decodeContext.PrepareContext.MetadataContext.UIntPtrType);
 
             return (extractContext, _) => new[] { string.Format(
-                "{0} = (uintptr_t){1}->Length",
+                "{0} = (uintptr_t){1}->length",
                 extractContext.GetSymbolName(symbol),
                 extractContext.GetSymbolName(siArray)) };
         }
