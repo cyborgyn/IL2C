@@ -150,6 +150,7 @@ static void System_Array_MarkHandler__(System_Array* arr)
     }
 }
 
+#ifndef EXTCORLIB
 IL2C_RUNTIME_TYPE_BEGIN(
     System_Array,
     "System.Array",
@@ -159,3 +160,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Array_MarkHandler__,
     0)
 IL2C_RUNTIME_TYPE_END();
+#endif

@@ -282,6 +282,7 @@ void System_Delegate_MarkHandler__(System_Delegate* this__)
     }
 }
 
+#ifndef EXTCORLIB
 System_Delegate_VTABLE_DECL__ System_Delegate_VTABLE__ = {
     0, // Adjustor offset
     (bool(*)(void*, System_Object*))System_Delegate_Equals__System_Object,
@@ -299,3 +300,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Delegate_MarkHandler__,
     0)
 IL2C_RUNTIME_TYPE_END();
+#endif
