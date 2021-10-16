@@ -275,7 +275,7 @@ namespace IL2C.Metadata
                     // Ignore global namespace
                     if (typeReference.FullName.Split('.').Length == 1)
                     {
-                        if (typeReference.FullName.Contains("<"))
+                        if (typeReference.FullName.Contains("<") || typeReference.IsGenericParameter)
                         {
                             return default(TypeInformation);
                         }
