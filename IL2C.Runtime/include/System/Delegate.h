@@ -60,23 +60,6 @@ extern /* virtual */ bool System_Delegate_Equals__System_Object(System_Delegate*
 extern /* static */ System_Delegate* System_Delegate_Combine__System_Delegate_System_Delegate(System_Delegate* a, System_Delegate* b);
 extern /* static */ System_Delegate* System_Delegate_Remove__System_Delegate_System_Delegate(System_Delegate* source, System_Delegate* value);
 
-/////////////////////////////////////////////////
-// Delegate special functions
-
-#if defined(IL2C_USE_LINE_INFORMATION)
-extern System_Delegate* il2c_new_delegate__(
-    IL2C_RUNTIME_TYPE delegateType, System_Object* object, intptr_t method, const char* pFile, int line);
-#define il2c_new_delegate(typeName, object, method) \
-    il2c_new_delegate__(il2c_typeof(typeName), object, method, __FILE__, __LINE__)
-#else
-extern System_Delegate* il2c_new_delegate__(
-    IL2C_RUNTIME_TYPE delegateType, System_Object* object, intptr_t method);
-#define il2c_new_delegate(typeName, object, method) \
-    il2c_new_delegate__(il2c_typeof(typeName), object, method)
-#endif
-
-extern void System_Delegate_MarkHandler__(System_Delegate* this__);
-
 #ifdef __cplusplus
 }
 #endif

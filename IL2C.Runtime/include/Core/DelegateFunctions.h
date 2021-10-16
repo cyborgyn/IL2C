@@ -17,8 +17,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef System_IntPtr_H__
-#define System_IntPtr_H__
+#ifndef System_DelegateFunctions_H__
+#define System_DelegateFunctions_H__
 
 #pragma once
 
@@ -28,24 +28,22 @@
 extern "C" {
 #endif
 
-/////////////////////////////////////////////////////////////
-// System.IntPtr
+/////////////////////////////////////////////////
+// Delegate special functions
 
-typedef intptr_t System_IntPtr;
+#if defined(IL2C_USE_LINE_INFORMATION)
+extern System_Delegate* il2c_new_delegate__(
+    IL2C_RUNTIME_TYPE delegateType, System_Object* object, intptr_t method, const char* pFile, int line);
+#define il2c_new_delegate(typeName, object, method) \
+    il2c_new_delegate__(il2c_typeof(typeName), object, method, __FILE__, __LINE__)
+#else
+extern System_Delegate* il2c_new_delegate__(
+    IL2C_RUNTIME_TYPE delegateType, System_Object* object, intptr_t method);
+#define il2c_new_delegate(typeName, object, method) \
+    il2c_new_delegate__(il2c_typeof(typeName), object, method)
+#endif
 
-typedef System_ValueType_VTABLE_DECL__ System_IntPtr_VTABLE_DECL__;
-
-extern System_IntPtr_VTABLE_DECL__ System_IntPtr_VTABLE__;
-
-IL2C_DECLARE_RUNTIME_TYPE(System_IntPtr);
-
-extern /* virtual */ System_String* System_IntPtr_ToString(intptr_t* this__);
-extern /* virtual */ int32_t System_IntPtr_GetHashCode(intptr_t* this__);
-extern bool System_IntPtr_Equals__System_IntPtr(intptr_t* this__, intptr_t obj);
-extern /* virtual */ bool System_IntPtr_Equals__System_Object(intptr_t* this__, System_Object* obj);
-
-extern const intptr_t System_IntPtr_Zero;
-extern intptr_t* System_IntPtr_Zero_REF__;
+extern void System_Delegate_MarkHandler__(System_Delegate* this__);
 
 #ifdef __cplusplus
 }

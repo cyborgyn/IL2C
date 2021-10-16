@@ -352,12 +352,16 @@ extern il2c_noreturn__ void il2c_throw_formatexception__(void);
 // It's pseudo referenced-type null value used by ldnull.
 typedef void* untyped_ptr;
 
+#ifndef EXTCORLIB
+
 #include "System/Object.h"
 #include "System/Type.h"
 #include "System/ValueType.h"
 #include "System/Array.h"
+#include "Core/ArrayFunctions.h"
 #include "System/Char.h"
 #include "System/String.h"
+#include "Core/StringFunctions.h"
 #include "System/Boolean.h"
 #include "System/Byte.h"
 #include "System/Int16.h"
@@ -368,11 +372,14 @@ typedef void* untyped_ptr;
 #include "System/UInt32.h"
 #include "System/UInt64.h"
 #include "System/IntPtr.h"
+#include "Core/IntPtrFunctions.h"
 #include "System/UIntPtr.h"
+#include "Core/UIntPtrFunctions.h"
 #include "System/Single.h"
 #include "System/Double.h"
 #include "System/Enum.h"
 #include "System/Delegate.h"
+#include "Core/DelegateFunctions.h"
 #include "System/MulticastDelegate.h"
 #include "System/RuntimeFieldHandle.h"
 #include "System/Runtime/CompilerServices/RuntimeHelpers.h"
@@ -384,6 +391,7 @@ typedef void* untyped_ptr;
 #include "System/IFormattable.h"
 #include "System/FormatException.h"
 #include "System/GC.h"
+#include "Core/GCFunctions.h"
 #include "System/Runtime/InteropServices/GCHandleType.h"
 #include "System/Runtime/InteropServices/GCHandle.h"
 #include "System/Runtime/InteropServices/NativePointer.h"
@@ -400,6 +408,21 @@ typedef void* untyped_ptr;
 
 // Independent types for IL2C core.
 #include "System/Console.h"
+
+#else
+
+#include "mscorlib-headers.h"
+
+#include "Core/ArrayFunctions.h"
+#include "Core/DelegateFunctions.h"
+#include "Core/GCFunctions.h"
+#include "Core/IntPtrFunctions.h"
+#include "Core/UIntPtrFunctions.h"
+#include "Core/StringFunctions.h"
+
+#include "mscorlib-bodys.h"
+
+#endif
 
 ///////////////////////////////////////////////////////
 // Boxing related declarations
