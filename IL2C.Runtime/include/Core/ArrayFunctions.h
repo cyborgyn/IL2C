@@ -37,8 +37,9 @@ extern "C" {
 
 #define il2c_array_item0ptr__(array) \
     (((uint8_t*)array) + sizeof(System_Array))
-static inline void* il2c_array_itemptr__(
-    System_Array* array, uint32_t elementSize, intptr_t index)
+extern void* il2c_array_itemptr__(
+    System_Array* array, uint32_t elementSize, intptr_t index);
+/*
 {
     il2c_assert(array != NULL); // TODO: NullReferenceException
 
@@ -54,6 +55,7 @@ static inline void* il2c_array_itemptr__(
 
     return il2c_array_item0ptr__(array) + ((intptr_t)elementSize) * index;
 }
+*/
 #define il2c_array_itemptr(array, elementTypeName, index) \
     (il2c_array_itemptr__(array, sizeof(elementTypeName), index))
 #define il2c_array_item(array, elementTypeName, index) \

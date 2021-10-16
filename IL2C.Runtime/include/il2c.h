@@ -405,6 +405,7 @@ typedef void* untyped_ptr;
 #include "System/UnhandledExceptionEventArgs.h"
 #include "System/UnhandledExceptionEventHandler.h"
 #include "System/AppDomain.h"
+#include "Core/AppDomainFunctions.h"
 
 // Independent types for IL2C core.
 #include "System/Console.h"
@@ -413,6 +414,7 @@ typedef void* untyped_ptr;
 
 #include "mscorlib-headers.h"
 
+#include "Core/AppDomainFunctions.h"
 #include "Core/ArrayFunctions.h"
 #include "Core/DelegateFunctions.h"
 #include "Core/GCFunctions.h"
@@ -420,7 +422,7 @@ typedef void* untyped_ptr;
 #include "Core/UIntPtrFunctions.h"
 #include "Core/StringFunctions.h"
 
-#include "mscorlib-bodys.h"
+#include "mscorlib-bodies.h"
 
 #endif
 
