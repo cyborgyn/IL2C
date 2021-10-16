@@ -216,8 +216,8 @@ namespace IL2C.Writers
                 }
 
                 var types = prepared.Types.
-                    Where(type => type.DeclaringType == null).
-                    OrderByDependant(translateContext.Assembly).
+                    //Where(type => type.DeclaringType == null).
+                    OrderByInheritence(translateContext.Assembly).
                     ToArray();
                 if (types.Length >= 1)
                 {
@@ -246,7 +246,7 @@ namespace IL2C.Writers
                         assemblyMangledName);
                     twHeader.SplitLine();
 
-                    foreach (var type in types)
+                    foreach (var type in types.OrderByDependant(translateContext.Assembly))
                     {
                         twHeader.WriteLine(
                             "#include \"{0}/{1}/{2}.h\"",
@@ -403,13 +403,13 @@ namespace IL2C.Writers
             var assemblyMangledName = translateContext.Assembly.MangledName;
 
             var typesByDeclaring = prepared.Types.
-                GroupBy(type => type.DeclaringType ?? type).
+                //GroupBy(type => type.DeclaringType ?? type).
                 ToDictionary(
-                    g => g.Key,
-                    g => g.OrderByDependant(translateContext.Assembly).ToArray());
+                    g => g,
+                    g => new ITypeInformation[] { g }); //g.OrderByDependant(translateContext.Assembly).ToArray());
 
             foreach (var g in prepared.Types.
-                Where(type => type.DeclaringType == null).
+                //Where(type => type.DeclaringType == null).
                 GroupBy(type => type.ScopeName))
             {
                 using (var _ = storage.EnterScope(g.Key))

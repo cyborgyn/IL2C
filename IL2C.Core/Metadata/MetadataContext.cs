@@ -25,6 +25,7 @@ using System.Linq;
 using Mono.Cecil;
 
 using IL2C.Metadata.Specialized;
+using System.Diagnostics;
 
 namespace IL2C.Metadata
 {
@@ -274,7 +275,10 @@ namespace IL2C.Metadata
                     // Ignore global namespace
                     if (typeReference.FullName.Split('.').Length == 1)
                     {
-                        return default(TypeInformation);
+                        if (typeReference.FullName.Contains("<"))
+                        {
+                            return default(TypeInformation);
+                        }
                     }
 
                     var module = this.GetOrAddModule(typeReference);

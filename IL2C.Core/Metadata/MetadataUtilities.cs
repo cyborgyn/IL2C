@@ -109,7 +109,7 @@ namespace IL2C.Metadata
 
                 return string.Join(
                     memberFormat.NameSeparator,
-                    ((namespaceName != null) ? new[] { namespaceName } : new string[0]).
+                    ((String.IsNullOrEmpty(namespaceName)) ? new string[0] : new[] { namespaceName }).
                         Concat(declaringTypes.Select(type => ConstructUniqueName(type, true, memberFormat))).  // Made inner types.
                         Concat(new[] { memberName }));
             }

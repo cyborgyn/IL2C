@@ -17,10 +17,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-
+using System.Text;
 using IL2C.Metadata;
 
 namespace IL2C.Writers
@@ -91,6 +92,56 @@ namespace IL2C.Writers
 
                 return result;
             }
+
+            public string GetInheritedTypeNames(ITypeInformation type)
+            {
+                StringBuilder sb = new StringBuilder();
+                var t = type;
+                while (t != null)
+                {
+                    sb.Insert(0, $"|{t.FriendlyName}|");
+                    t = t.BaseType;
+                }
+                foreach (var i in type.InterfaceTypes)
+                {
+                    sb.Append(GetInheritedTypeNames(i));
+                }
+                return sb.ToString();
+            }
+        }
+
+        private class DependencyComparer : IComparer<ITypeInformation>
+        {
+            private Context context;
+
+            internal DependencyComparer(Context context)
+            {
+                this.context = context;
+            }
+
+            private Dictionary<ITypeInformation, string> Cache = new Dictionary<ITypeInformation, string>();
+
+            public int Compare(ITypeInformation x, ITypeInformation y)
+            {
+                if (!Cache.ContainsKey(x)) Cache.Add(x, context.GetInheritedTypeNames(x));
+                if (!Cache.ContainsKey(y)) Cache.Add(y, context.GetInheritedTypeNames(y));
+                return String.Compare(Cache[x], Cache[y]);
+            }
+        }
+        public static IEnumerable<ITypeInformation> OrderByInheritence(
+            this IEnumerable<ITypeInformation> types,
+            IEnumerable<IAssemblyInformation> regions)
+        {
+            var context = new Context(regions.Distinct());
+            var list = new LinkedList<ITypeInformation>();
+            return types.Select(MetadataUtilities.UnwrapCoveredType).Distinct().OrderBy(t => t, new DependencyComparer(context));
+        }
+        
+        public static IEnumerable<ITypeInformation> OrderByInheritence(
+            this IEnumerable<ITypeInformation> types,
+            params IAssemblyInformation[] regions)
+        {
+            return types.OrderByInheritence((IEnumerable<IAssemblyInformation>)regions);
         }
 
         public static IEnumerable<ITypeInformation> OrderByDependant(

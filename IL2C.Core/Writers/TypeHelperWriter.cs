@@ -322,10 +322,10 @@ namespace IL2C.Writers
             // Aggregate mark target fields (except the enum type and the delegate type)
             var markTargetFields =
                 declaredFields.
-                Where(field =>
+                Where(field => field.FieldType != null && (
                     field.FieldType.IsReferenceType ||
                     (field.FieldType.IsValueType && !field.FieldType.IsPrimitive &&
-                    field.FieldType.Fields.Length >= 1)).
+                    field.FieldType.Fields.Length >= 1))).
                 ToArray();
 
             // All virtual methods are implemented.
