@@ -33,9 +33,11 @@ namespace System.Runtime.InteropServices
         {
             this.IncludeFileName = (string)arg0;
             this.SymbolName = (string)props["SymbolName"];
+            this.Compilation = (CompilationOption)props["Compilation"];
         }
 
         public string IncludeFileName { get; }
         public string SymbolName { get; set; }
+        public CompilationOption Compilation { get; set; }
     }
 }

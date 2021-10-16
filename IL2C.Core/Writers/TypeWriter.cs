@@ -32,7 +32,8 @@ namespace IL2C.Writers
             CodeTextWriter tw,
             ITypeInformation declaredType)
         {
-            if (declaredType.IsPrimitive || !(declaredType.IsValueType || declaredType.IsReferenceType))
+            // declaredType.IsPrimitive
+            if (!(declaredType.IsValueType || declaredType.IsReferenceType))
             {
                 return;
             }
