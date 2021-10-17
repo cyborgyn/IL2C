@@ -58,7 +58,7 @@ namespace IL2C.Writers
                         {
                             twHeader.WriteLine(
                                 "/* native type */ typedef {0} {1};",
-                                type.CLanguageNativeTypeName,
+                                String.IsNullOrEmpty(type.NativeType.SymbolName) ? type.CLanguageNativeTypeName : type.NativeType.SymbolName,
                                 type.MangledUniqueName);
                         }
                         // Unfortunately the enum type at C language has not the underlying type.
