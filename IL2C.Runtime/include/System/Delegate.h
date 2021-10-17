@@ -35,22 +35,6 @@ typedef struct System_Delegate System_Delegate;
 
 typedef System_Object_VTABLE_DECL__ System_Delegate_VTABLE_DECL__;
 
-typedef const struct IL2C_METHOD_TABLE_DECL
-{
-    System_Object* target;
-    intptr_t methodPtr;
-} IL2C_METHOD_TABLE;
-
-// We are surprised what be variable size for System.Delegate instance ;)
-
-struct System_Delegate
-{
-    System_Delegate_VTABLE_DECL__* vptr0__;
-
-    uintptr_t count__;
-    IL2C_METHOD_TABLE methodtbl__[1];
-};
-
 extern System_Delegate_VTABLE_DECL__ System_Delegate_VTABLE__;
 
 IL2C_DECLARE_RUNTIME_TYPE(System_Delegate);

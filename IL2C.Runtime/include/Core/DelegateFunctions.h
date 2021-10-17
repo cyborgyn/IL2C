@@ -31,6 +31,22 @@ extern "C" {
 /////////////////////////////////////////////////
 // Delegate special functions
 
+typedef const struct IL2C_METHOD_TABLE_DECL
+{
+    System_Object* target;
+    intptr_t methodPtr;
+} IL2C_METHOD_TABLE;
+
+// We are surprised what be variable size for System.Delegate instance ;)
+
+struct System_Delegate
+{
+    System_Delegate_VTABLE_DECL__* vptr0__;
+
+    uintptr_t count__;
+    IL2C_METHOD_TABLE methodtbl__[1];
+};
+
 #if defined(IL2C_USE_LINE_INFORMATION)
 extern System_Delegate* il2c_new_delegate__(
     IL2C_RUNTIME_TYPE delegateType, System_Object* object, intptr_t method, const char* pFile, int line);
