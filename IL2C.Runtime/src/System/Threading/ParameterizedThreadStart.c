@@ -3,7 +3,7 @@
 /////////////////////////////////////////////////////////////
 // System.Threading.ParameterizedThreadStart
 
-void System_Threading_ParameterizedThreadStart_Invoke(System_Threading_ParameterizedThreadStart* this__, System_Object* obj)
+void System_Threading_ParameterizedThreadStart_Invoke__System_Object(System_Threading_ParameterizedThreadStart* this__, System_Object* obj)
 {
     il2c_assert(this__ != NULL);
     il2c_assert(this__->vptr0__ == &System_Delegate_VTABLE__);

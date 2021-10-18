@@ -130,7 +130,7 @@ static IL2C_THREAD_ENTRY_POINT_RESULT_TYPE System_Threading_Thread_InternalEntry
     il2c_try(bottomNest, System_Threading_Thread_InternalExceptionFilter)
     {
         // Invoke delegate.
-        System_Threading_ParameterizedThreadStart_Invoke(
+        System_Threading_ParameterizedThreadStart_Invoke__System_Object(
             (System_Threading_ParameterizedThreadStart*)(pRuntimeThread->thread.start__), pRuntimeThread->parameter);
         il2c_leave(bottomNest, 0);
     }

@@ -39,7 +39,7 @@ typedef System_MulticastDelegate_VTABLE_DECL__ System_Threading_ParameterizedThr
 
 IL2C_DECLARE_RUNTIME_TYPE(System_Threading_ParameterizedThreadStart);
 
-extern /* public sealed */ void System_Threading_ParameterizedThreadStart_Invoke(System_Threading_ParameterizedThreadStart* this__, System_Object* obj);
+extern /* public sealed */ void System_Threading_ParameterizedThreadStart_Invoke__System_Object(System_Threading_ParameterizedThreadStart* this__, System_Object* obj);
 
 #ifdef __cplusplus
 }
