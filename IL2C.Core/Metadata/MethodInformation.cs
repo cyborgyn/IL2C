@@ -62,6 +62,7 @@ namespace IL2C.Metadata
 
         IParameterInformation[] GetParameters(ITypeInformation thisType);
 
+        MethodImplAttributes MethodImplementation { get; }
         PInvokeInfo PInvokeInformation { get; }
         NativeMethodAttributeInformation NativeMethod { get; }
 
@@ -367,8 +368,12 @@ namespace IL2C.Metadata
                 ToArray();
         }
 
+        public MethodImplAttributes MethodImplementation =>
+            this.Definition.ImplAttributes;
+
         public PInvokeInfo PInvokeInformation =>
             this.Definition.PInvokeInfo;
+        
         public NativeMethodAttributeInformation NativeMethod =>
             this.Definition.CustomAttributes.
             Where(ca => ca.AttributeType.FullName == NativeMethodAttributeInformation.FullName).

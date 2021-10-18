@@ -661,7 +661,16 @@ namespace IL2C.Writers
                     "extern {0};",
                     method.CLanguagePInvokePrototype);
                 tw.SplitLine();
+            } 
+            else if ((method.MethodImplementation & Mono.Cecil.MethodImplAttributes.InternalCall) != 0)
+            {
+                tw.WriteLine(
+                    "extern {0};",
+                    method.CLanguageFunctionPrototype);
+                tw.SplitLine();
+                return;
             }
+
 
             if (method.IsPrivate)
             {
