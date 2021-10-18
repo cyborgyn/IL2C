@@ -23,6 +23,7 @@ void System_UnhandledExceptionEventHandler_Invoke__System_Object_System_Unhandle
     while (il2c_likely__(index < this__->count__));
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -35,3 +36,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Delegate_MarkHandler__,
     0)
 IL2C_RUNTIME_TYPE_END();
+#endif

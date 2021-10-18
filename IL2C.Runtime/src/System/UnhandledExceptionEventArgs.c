@@ -22,6 +22,7 @@ bool System_UnhandledExceptionEventArgs_get_IsTerminating(System_UnhandledExcept
     return this__->isTerminating__;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -34,3 +35,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     1, 0)
     IL2C_RUNTIME_TYPE_MARK_TARGET_FOR_REFERENCE(System_UnhandledExceptionEventArgs, exception__)
 IL2C_RUNTIME_TYPE_END();
+#endif

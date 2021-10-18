@@ -22,6 +22,7 @@ void System_Threading_ThreadStart_Invoke(System_Threading_ThreadStart* this__)
     while (il2c_unlikely__(index < this__->count__));
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -34,3 +35,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Delegate_MarkHandler__,
     0)
 IL2C_RUNTIME_TYPE_END();
+#endif

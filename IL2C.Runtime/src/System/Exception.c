@@ -35,6 +35,7 @@ System_String* System_Exception_ToString(System_Exception* this__)
     return str;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -56,3 +57,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     1, 0)
     IL2C_RUNTIME_TYPE_MARK_TARGET_FOR_REFERENCE(System_Exception, message__)
 IL2C_RUNTIME_TYPE_END();
+#endif

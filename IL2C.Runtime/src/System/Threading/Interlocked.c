@@ -8,6 +8,7 @@ void* System_Threading_Interlocked_CompareExchange_6(void* location1, void* valu
     return il2c_icmpxchgptr(location1, value, comparand);
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -15,3 +16,4 @@ IL2C_RUNTIME_TYPE_STATIC(
     System_Threading_Interlocked,
     "System.Threading.Interlocked",
     System_Object);
+#endif

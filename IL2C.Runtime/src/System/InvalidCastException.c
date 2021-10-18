@@ -3,6 +3,7 @@
 /////////////////////////////////////////////////////////////
 // System.InvalidCastException
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -14,3 +15,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Exception,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

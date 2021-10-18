@@ -58,6 +58,7 @@ bool System_Byte_TryParse__System_String_System_Byte_REF(System_String* s, uint8
     return ((s->string_body__ != endPtr) && (il2c_errno == 0) && (value <= 255)) ? true : false;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -72,3 +73,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_ValueType,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

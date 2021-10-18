@@ -58,6 +58,7 @@ bool System_SByte_TryParse__System_String_System_SByte_REF(System_String* s, int
     return ((s->string_body__ != endPtr) && (il2c_errno == 0) && (value <= 127) && (value >= -128)) ? true : false;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -72,3 +73,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_ValueType,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

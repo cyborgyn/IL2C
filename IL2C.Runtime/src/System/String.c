@@ -1099,6 +1099,7 @@ System_String* System_String_Format__System_String_System_Array__System_Object(
     return pString;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -1118,3 +1119,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Object,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

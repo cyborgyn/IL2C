@@ -61,6 +61,7 @@ bool System_Single_TryParse__System_String_System_Single_REF(System_String* s, f
         (value <= (float)3.40282346638528859e+38) && (value >= (float)-3.40282346638528859e+38)) ? true : false;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -75,3 +76,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_ValueType,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

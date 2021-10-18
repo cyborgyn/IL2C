@@ -43,6 +43,7 @@ bool System_UIntPtr_Equals__System_Object(uintptr_t* this__, System_Object* obj)
     return *this__ == rhs;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -57,3 +58,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_ValueType,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

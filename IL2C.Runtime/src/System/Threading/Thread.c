@@ -293,6 +293,8 @@ static void System_Threading_Thread_MarkHandler__(System_Threading_Thread* threa
     }
 }
 
+#ifndef EXTCORLIB
+
 System_Threading_Thread_VTABLE_DECL__ System_Threading_Thread_VTABLE__ = {
     0, // Adjustor offset
     (bool(*)(void*, System_Object*))System_Object_Equals__System_Object,
@@ -312,3 +314,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Threading_Thread_MarkHandler__,
     0)
 IL2C_RUNTIME_TYPE_END();
+#endif

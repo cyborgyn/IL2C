@@ -48,6 +48,7 @@ bool System_Object_ReferenceEquals__System_Object_System_Object(System_Object* o
     return ((intptr_t)objA) == ((intptr_t)objB);
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -68,3 +69,4 @@ const uintptr_t System_Object_RUNTIME_TYPE__[] = {
     0,
     0
 };
+#endif

@@ -3,6 +3,7 @@
 /////////////////////////////////////////////////////////////
 // System.EventArgs
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -14,3 +15,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Object,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

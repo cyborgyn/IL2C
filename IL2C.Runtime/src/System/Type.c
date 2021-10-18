@@ -76,6 +76,7 @@ System_Type* System_Type_get_BaseType(System_Type* this__)
     return pType;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -97,3 +98,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Object,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

@@ -50,6 +50,7 @@ System_String* System_Console_ReadLine(void)
     }
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -57,3 +58,4 @@ IL2C_RUNTIME_TYPE_STATIC(
     System_Console,
     "System.Console",
     System_Object);
+#endif

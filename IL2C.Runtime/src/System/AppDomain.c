@@ -53,6 +53,7 @@ void il2c_invoke_unhandled_exception_on_the_current_domain__(System_Object* exce
     }
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -65,3 +66,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     1, 0)
     IL2C_RUNTIME_TYPE_MARK_TARGET_FOR_REFERENCE(System_AppDomain, unhandledExceptionEventHandler__)
 IL2C_RUNTIME_TYPE_END();
+#endif

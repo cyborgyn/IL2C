@@ -48,6 +48,7 @@ bool System_ValueType_Equals__System_Object(System_ValueType* this__, System_Obj
 //   | vptr_IBar__          |                  | (optional implemented interface vptr)
 //   +----------------------+                ---------------------------
 
+#ifndef EXTCORLIB
 System_ValueType_VTABLE_DECL__ System_ValueType_VTABLE__ = {
     0, // Adjustor offset
     (bool(*)(void*, System_Object*))System_ValueType_Equals__System_Object,
@@ -63,3 +64,4 @@ IL2C_RUNTIME_TYPE_ABSTRACT_BEGIN(
     System_Object,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

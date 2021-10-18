@@ -350,6 +350,7 @@ void System_Threading_Monitor_Exit__System_Object(System_Object* obj)
     il2c_exit_monitor_lock__(pLock);
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -357,3 +358,4 @@ IL2C_RUNTIME_TYPE_STATIC(
     System_Threading_Monitor,
     "System.Threading.Monitor",
     System_Object);
+#endif

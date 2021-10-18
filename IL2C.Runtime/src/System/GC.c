@@ -41,6 +41,7 @@ void System_GC_WaitForPendingFinalizers(void)
     }
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -48,3 +49,4 @@ IL2C_RUNTIME_TYPE_STATIC(
     System_GC,
     "System.GC",
     System_Object);
+#endif

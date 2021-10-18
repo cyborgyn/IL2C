@@ -60,6 +60,7 @@ bool System_Boolean_TryParse__System_String_System_Boolean_REF(System_String* s,
     return false;
 }
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -74,3 +75,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_ValueType,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

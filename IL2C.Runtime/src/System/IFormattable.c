@@ -3,8 +3,10 @@
 /////////////////////////////////////////////////////////////
 // System.IFormattable
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
 IL2C_RUNTIME_TYPE_INTERFACE_BEGIN(System_IFormattable, "System.IFormattable", 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

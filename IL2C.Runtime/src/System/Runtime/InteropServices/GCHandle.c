@@ -97,6 +97,7 @@ static bool System_Runtime_InteropServices_GCHandle_Equals__System_Object__Tramp
     return System_Runtime_InteropServices_GCHandle_Equals__System_Object(pValue, obj);
 }
 
+#ifndef EXTCORLIB
 System_Runtime_InteropServices_GCHandle_VTABLE_DECL__ System_Runtime_InteropServices_GCHandle_VTABLE__ = {
     0, // Adjustor offset
     (bool(*)(void*, System_Object*))System_Runtime_InteropServices_GCHandle_Equals__System_Object__Trampoline_VFunc__,
@@ -113,3 +114,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_ValueType,
     0, 0)
 IL2C_RUNTIME_TYPE_END();
+#endif

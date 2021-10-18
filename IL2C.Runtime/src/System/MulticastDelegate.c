@@ -5,6 +5,7 @@
 
 // All members transfered to System.Delegate.
 
+#ifndef EXTCORLIB
 /////////////////////////////////////////////////
 // VTable and runtime type info declarations
 
@@ -17,3 +18,4 @@ IL2C_RUNTIME_TYPE_BEGIN(
     System_Delegate_MarkHandler__,
     0)
 IL2C_RUNTIME_TYPE_END();
+#endif
