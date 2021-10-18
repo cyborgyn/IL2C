@@ -74,7 +74,7 @@ namespace IL2C.Metadata
                 { "System.Enum", new HashSet<string> { "ToString", "GetHashCode", "Equals" } },
                 { "System.Delegate", new HashSet<string> { "GetHashCode", "Equals", "Combine", "Remove", "_target", "_methodPtr" } },
                 { "System.MulticastDelegate", new HashSet<string> { "GetHashCode", "Equals", "_target", "_methodPtr" } },
-                { "System.RuntimeFieldHandle", new HashSet<string> { "GetHashCode", "Equals" } },
+                { "System.RuntimeFieldHandle", new HashSet<string> { "GetHashCode", "Equals", "size__", "field__" } },
             };
         private static readonly HashSet<string> derivedFromMulticastDelegateValidTargetMethods =
             new HashSet<string> { ".ctor", "Invoke" };
