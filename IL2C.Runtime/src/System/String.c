@@ -432,7 +432,33 @@ int8_t il2c_format_string__(
 // System.String
 
 IL2C_CONST_STRING(System_String_Empty, L"");
-System_String** System_String_Empty_REF__ = (System_String**)&System_String_Empty;
+
+#ifndef EXTCORLIB
+//////////////////////////////////////////////////////////////////////////////////
+// [9-3] Static field handlers:
+
+static volatile uintptr_t System_String_STATIC_FIELDS_initializerCount__ = 0;
+
+static struct System_String_STATIC_FIELDS_DECL__ /* IL2C_STATIC_FIELDS */
+{
+    IL2C_STATIC_FIELDS* pNext__;
+    const uint16_t objRefCount__;
+    const uint16_t valueCount__;
+    //-------------------- objref
+    System_String* Empty;
+} System_String_STATIC_FIELDS__ = { NULL, 1, 0 };
+
+System_String** System_String_Empty_HANDLER__(void)
+{
+    if (il2c_unlikely__(System_String_STATIC_FIELDS_initializerCount__ != *il2c_initializer_count))
+    {
+        System_String_STATIC_FIELDS_initializerCount__ = *il2c_initializer_count;
+        il2c_register_static_fields(&System_String_STATIC_FIELDS__);
+        System_String_STATIC_FIELDS__.Empty = System_String_Empty;
+    }
+    return &System_String_STATIC_FIELDS__.Empty;
+}
+#endif
 
 System_String* System_String_ToString(System_String* this__)
 {

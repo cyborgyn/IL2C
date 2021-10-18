@@ -45,7 +45,8 @@ extern System_String_VTABLE_DECL__ System_String_VTABLE__;
 
 IL2C_DECLARE_RUNTIME_TYPE(System_String);
 
-extern System_String** System_String_Empty_REF__;
+extern System_String** System_String_Empty_HANDLER__(void);
+/* public static readonly */ #define System_String_Empty_REF__ (System_String_Empty_HANDLER__())
 
 typedef struct System_IFormatProvider System_IFormatProvider;
 
